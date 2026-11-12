@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 400" preserveAspectRatio="xMidYMid slice">
+  <!-- Beeldmerk-kunst Red de Ceuvel: oker verf, staalplaat met patrijspoort, rode geklonken ligger, mos dat eroverheen groeit -->
+  <rect fill="#e4bd4f" x="16" y="-8" width="168" height="296"/>
+  <rect fill="#3e6068" x="200" y="56" width="300" height="200"/>
+  <rect fill="#8a4524" x="420" y="56" width="80" height="34" opacity=".55"/>
+  <rect fill="#d63a33" x="16" y="320" width="484" height="96"/>
+  <path fill="#8fbf3a" d="M40 320 A80 80 0 0 1 200 320 Z"/>
+  <path fill="#8fbf3a" d="M200 320 q10 -50 34 -64 q-6 36 -14 64 Z"/>
+  <circle fill="#152326" cx="350" cy="156" r="54"/>
+  <circle fill="none" stroke="#d9d2b2" stroke-width="7" cx="350" cy="156" r="54"/>
+  <g fill="#d9d2b2">
+    <circle cx="418" cy="156" r="4"/><circle cx="398" cy="204" r="4"/><circle cx="350" cy="224" r="4"/><circle cx="302" cy="204" r="4"/>
+    <circle cx="282" cy="156" r="4"/><circle cx="302" cy="108" r="4"/><circle cx="350" cy="88" r="4"/><circle cx="398" cy="108" r="4"/>
+  </g>
+  <g fill="#d9d2b2">
+    <circle cx="28" cy="346" r="5"/><circle cx="52" cy="346" r="5"/><circle cx="76" cy="346" r="5"/><circle cx="100" cy="346" r="5"/>
+    <circle cx="124" cy="346" r="5"/><circle cx="148" cy="346" r="5"/><circle cx="172" cy="346" r="5"/><circle cx="196" cy="346" r="5"/>
+    <circle cx="220" cy="346" r="5"/><circle cx="244" cy="346" r="5"/><circle cx="268" cy="346" r="5"/><circle cx="292" cy="346" r="5"/>
+    <circle cx="316" cy="346" r="5"/><circle cx="340" cy="346" r="5"/><circle cx="364" cy="346" r="5"/><circle cx="388" cy="346" r="5"/>
+    <circle cx="412" cy="346" r="5"/><circle cx="436" cy="346" r="5"/><circle cx="460" cy="346" r="5"/>
+  </g>
+</svg>

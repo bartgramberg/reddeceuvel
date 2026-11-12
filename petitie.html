@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teken de petitie — Red de Ceuvel</title>
+<meta name="description" content="Teken de petitie: behoud De Ceuvel in Amsterdam-Noord. Geen kaalslag, maar samen verder bouwen op wat er al staat.">
+<meta property="og:title" content="Teken de petitie — Red de Ceuvel">
+<meta property="og:description" content="Een unieke plek slopen of samen de stad maken? Teken voor het behoud van de Ceuvel.">
+<meta name="theme-color" content="#152326">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=League+Spartan:wght@700;800;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@800&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-pagina="petitie">
+<main>
+  <header class="pkop rdc-korrel">
+    <img class="pkop-kunst rdc-grit" src="assets/img/werf.svg" alt="" aria-hidden="true">
+    <div class="binnen">
+      <div class="rdc-leus">
+        <p class="rdc-leus-kicker">Petitie aan de gemeente Amsterdam</p>
+        <h1 class="rdc-leus-titel rdc-grit">Behoud<br><em>De Ceuvel</em></h1>
+        <span class="rdc-leus-balk" aria-hidden="true"></span>
+      </div>
+      <p class="intro">Geen kaalslag, maar samen verder bouwen op wat er al staat. Teken en laat zien dat Amsterdam deze plek wil houden.</p>
+    </div>
+  </header>
+
+  <section class="sectie" style="padding-top:0">
+    <div class="binnen petitie-grid">
+      <div>
+        <div data-teller style="max-width:560px"></div>
+
+        <div class="oproep">
+          <h2 class="kop-s">Wij, de ondertekenaars, vragen de gemeente Amsterdam:</h2>
+          <ol>
+            <li><b>Behoud De Ceuvel</b> als groene proeftuin voor duurzaamheid, ondernemerschap en gemeenschap in Amsterdam-Noord.</li>
+            <li><b>Kies voor samenwerking in plaats van een tender.</b> Een één-op-één gunning is juridisch mogelijk. Bouw voort op een initiatief dat zijn waarde al heeft bewezen.</li>
+            <li><b>Realiseer het bestemmingsplan zonder sloop.</b> Behoud wat waardevol is: de gebouwen, de gezuiverde grond, de natuur en het netwerk van mensen.</li>
+          </ol>
+        </div>
+
+        <h2 class="kop">Waarom dit ertoe doet</h2>
+        <p>De Ceuvel is gebouwd op vervuilde grond, met hergebruikte woonboten en planten die de bodem schoonmaken. In ruim tien jaar groeide hier een economisch, sociaal en ecologisch ecosysteem dat internationaal als voorbeeld geldt.</p>
+        <p>Wat de gemeente op papier wil (duurzaamheid, participatie, innovatie, gemeenschap), gebeurt hier elke dag in het echt. 'Samen de stad maken' vraagt om vertrouwen in wie dat al doet. Sloop vernietigt niet alleen gebouwen en natuur, maar ook jaren aan sociaal kapitaal en investeringen.</p>
+        <p><a href="verhaal.html">Lees het hele verhaal →</a></p>
+
+        <h2 class="kop" style="margin-top:var(--space-12)">Zij tekenden al</h2>
+        <ul class="ondertekenaars" id="ondertekenaars"><li><span></span><small>Laden…</small></li></ul>
+      </div>
+
+      <aside>
+        <div class="plaat" id="formulier-plaat">
+          <form class="formulier" id="petitie-form" novalidate>
+            <div>
+              <h2 class="formulier-kop">Teken nu</h2>
+              <p class="privacy" style="font-size:15px">Duurt een minuut. Je naam telt mee in de petitie aan de gemeente.</p>
+            </div>
+            <div class="rij-2">
+              <div class="veld"><label for="voornaam">Voornaam <span class="verplicht">*</span></label><input id="voornaam" name="voornaam" autocomplete="given-name" required maxlength="60"></div>
+              <div class="veld"><label for="achternaam">Achternaam <span class="verplicht">*</span></label><input id="achternaam" name="achternaam" autocomplete="family-name" required maxlength="80"></div>
+            </div>
+            <div class="veld"><label for="email">E-mail <span class="verplicht">*</span></label><input id="email" name="email" type="email" autocomplete="email" required maxlength="120"><p class="hulp">Om dubbele handtekeningen te voorkomen. Wordt nooit getoond.</p></div>
+            <div class="rij-2">
+              <div class="veld"><label for="woonplaats">Woonplaats</label><input id="woonplaats" name="woonplaats" autocomplete="address-level2" maxlength="80"></div>
+              <div class="veld"><label for="rol">Ik ben…</label>
+                <select id="rol" name="rol">
+                  <option value="">Kies</option>
+                  <option>Buurtbewoner</option>
+                  <option>Amsterdammer</option>
+                  <option>Bezoeker</option>
+                  <option>Ondernemer of werkzaam op De Ceuvel</option>
+                  <option>Van verder weg</option>
+                </select>
+              </div>
+            </div>
+            <div class="veld"><label for="bericht">Waarom teken jij? <span style="font-weight:500;color:var(--ink-muted)">(optioneel)</span></label><textarea id="bericht" name="bericht" maxlength="280" style="min-height:96px"></textarea><span class="teken-teller" data-voor="bericht">0 / 280</span></div>
+            <label class="vink"><input type="checkbox" name="naamTonen" checked><span>Toon mijn voornaam, initiaal en woonplaats bij "Zij tekenden al"</span></label>
+            <label class="vink"><input type="checkbox" name="nieuwsbrief"><span>Houd me op de hoogte van de campagne</span></label>
+            <div class="hp" aria-hidden="true"><label>Laat leeg <input name="website_hp" tabindex="-1" autocomplete="off"></label></div>
+            <p class="fout" id="fout" hidden></p>
+            <button class="rdc-btn rdc-btn-sein rdc-btn-xl rdc-btn-pijl" type="submit" style="width:100%">Ik teken</button>
+            <p class="privacy">We gebruiken je gegevens alleen voor deze petitie en, als je dat aanvinkt, voor campagne-updates. Je e-mailadres wordt nooit gepubliceerd.</p>
+          </form>
+        </div>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<template id="bedankt-tpl">
+  <div class="bedankt">
+    <span class="rdc-stamp rdc-stamp-mos rdc-grit-licht">Getekend<span class="rdc-stamp-sub" data-naam></span></span>
+    <h2>Dank je.<br>Nu nog 3 vrienden.</h2>
+    <p>Een petitie wint op aantallen. Stuur hem door naar mensen die De Ceuvel kennen, of die hem moeten leren kennen.</p>
+    <div class="deelrij" id="deelrij"></div>
+    <hr style="border:0;border-top:3px solid var(--line);margin:var(--space-6) 0">
+    <p class="label">Nog één stap verder?</p>
+    <h3 class="kop-s">Word ambassadeur en vertel wat De Ceuvel voor jou betekent.</h3>
+    <a class="rdc-btn rdc-btn-mos rdc-btn-pijl" href="word-ambassadeur.html">Word ambassadeur</a>
+  </div>
+</template>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+(function () {
+  // ondertekenaars
+  var ul = document.getElementById("ondertekenaars");
+  RDC.api.data().then(function (d) {
+    var l = d.ondertekenaars || [];
+    if (!l.length) { ul.innerHTML = '<li><span></span><small>Wees de eerste die hier verschijnt.</small></li>'; return; }
+    ul.innerHTML = l.slice(0, 30).map(function (o) {
+      return '<li><span class="nagel" aria-hidden="true">' + RDC.esc(o.naam.charAt(0)) + '</span><div><b>' + RDC.esc(o.naam) + '</b>' +
+        '<small>' + RDC.esc([o.woonplaats, o.rol].filter(Boolean).join(" · ")) + '</small>' +
+        (o.bericht ? '<q>' + RDC.esc(o.bericht) + '</q>' : '') + '</div></li>';
+    }).join("");
+  });
+
+  // tekenteller
+  var ta = document.getElementById("bericht"), tt = document.querySelector('[data-voor="bericht"]');
+  ta.addEventListener("input", function () { tt.textContent = ta.value.length + " / 280"; tt.classList.toggle("bijna", ta.value.length > 250); });
+
+  // versturen
+  var form = document.getElementById("petitie-form"), fout = document.getElementById("fout");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    fout.hidden = true;
+    if (!form.checkValidity()) {
+      fout.textContent = "Vul je voornaam, achternaam en een geldig e-mailadres in.";
+      fout.hidden = false;
+      var eerste = form.querySelector(":invalid"); if (eerste) eerste.focus();
+      return;
+    }
+    var f = new FormData(form);
+    var knop = form.querySelector("button[type=submit]");
+    knop.disabled = true; knop.textContent = "Bezig met tekenen…";
+    RDC.api.verstuur({
+      type: "petitie",
+      voornaam: f.get("voornaam"), achternaam: f.get("achternaam"), email: f.get("email"),
+      woonplaats: f.get("woonplaats"), rol: f.get("rol"), bericht: f.get("bericht"),
+      naamTonen: !!f.get("naamTonen"), nieuwsbrief: !!f.get("nieuwsbrief"),
+      website_hp: f.get("website_hp")
+    }).then(function (r) {
+      if (!r || !r.ok) throw new Error((r && r.error) || "Er ging iets mis.");
+      var plaat = document.getElementById("formulier-plaat");
+      plaat.innerHTML = document.getElementById("bedankt-tpl").innerHTML;
+      plaat.querySelector("[data-naam]").textContent = r.dubbel ? "Je had al getekend" : f.get("voornaam");
+      RDC.deelknoppen(plaat.querySelector("#deelrij"), "Ik heb getekend om De Ceuvel te behouden. Teken jij ook?", RDC_CONFIG.SITE_URL + "/petitie.html");
+      plaat.scrollIntoView({ behavior: "smooth", block: "start" });
+      confetti();
+    }).catch(function (err) {
+      fout.textContent = err.message || "Er ging iets mis. Probeer het opnieuw.";
+      fout.hidden = false;
+      knop.disabled = false; knop.textContent = "Ik teken";
+    });
+  });
+
+  function confetti() {
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var c = document.createElement("div"); c.className = "confetti";
+    var kleuren = ["#e4bd4f", "#8fbf3a", "#d63a33", "#d9d2b2", "#3e6068"];
+    for (var i = 0; i < 70; i++) {
+      var s = document.createElement("i");
+      s.style.left = Math.random() * 100 + "vw";
+      s.style.background = kleuren[i % kleuren.length];
+      s.style.animationDelay = Math.random() * .6 + "s";
+      s.style.borderRadius = i % 3 ? "0" : "50%";
+      c.appendChild(s);
+    }
+    document.body.appendChild(c);
+    setTimeout(function () { c.remove(); }, 3600);
+  }
+})();
+</script>
+</body>
+</html>

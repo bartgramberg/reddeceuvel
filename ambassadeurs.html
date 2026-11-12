@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ambassadeurs — Red de Ceuvel</title>
+<meta name="description" content="De mensen die De Ceuvel dragen. Lees wat deze plek voor hen betekent, en word zelf ambassadeur.">
+<meta name="theme-color" content="#152326">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=League+Spartan:wght@700;800;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@800&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-pagina="ambassadeurs">
+<main>
+  <header class="pkop rdc-korrel">
+    <img class="pkop-kunst rdc-grit" src="assets/img/werf.svg" alt="" aria-hidden="true">
+    <div class="binnen">
+      <p class="rdc-leus-kicker">De mensen die De Ceuvel dragen</p>
+      <div class="tel-kop">
+        <span class="tel-groot rdc-grit" id="aantal">0</span>
+        <h1 class="rdc-leus-titel rdc-grit">Ambas&shy;sadeurs</h1>
+      </div>
+      <p class="intro">Buren, makers, ondernemers, kinderen en bezoekers van ver. Dit is wat De Ceuvel voor hen betekent.</p>
+      <p style="margin-top:var(--space-6)"><a class="rdc-btn rdc-btn-oker rdc-btn-pijl" href="aanmelden.html">Word ook ambassadeur</a></p>
+    </div>
+  </header>
+
+  <section class="sectie" style="padding-top:var(--space-6)">
+    <div class="binnen">
+      <div class="amb-grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section class="amb-cta rdc-korrel">
+    <div class="binnen">
+      <div class="poort-groot" aria-hidden="true">jij</div>
+      <div>
+        <h2>Hier hoort jouw verhaal bij</h2>
+        <p>Wat betekent De Ceuvel voor jou? Vertel het, en laat je gezicht zien.</p>
+      </div>
+      <a class="rdc-btn rdc-btn-pijl" href="aanmelden.html">Word ambassadeur</a>
+    </div>
+  </section>
+</main>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+RDC.api.data().then(function (d) {
+  var a = (d.ambassadeurs || []).slice().sort(function (x, y) { return (y.uitgelicht ? 1 : 0) - (x.uitgelicht ? 1 : 0); });
+  var grid = document.getElementById("grid");
+  document.getElementById("aantal").textContent = a.length;
+  if (!a.length) {
+    grid.outerHTML = '<div class="leeg"><p class="kop-s">Nog niemand hier. Word jij de eerste?</p><a class="rdc-btn rdc-btn-mos rdc-btn-pijl" href="aanmelden.html">Meld je aan</a></div>';
+    return;
+  }
+  grid.innerHTML = a.map(function (x, i) {
+    return RDC.ambKaart(x, i, { groot: x.uitgelicht }).replace('<article class="amb', '<article class="opkomst amb');
+  }).join("");
+  RDC.observeer(grid);
+});
+</script>
+</body>
+</html>

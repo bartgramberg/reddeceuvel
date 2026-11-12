@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meld je aan als ambassadeur — Red de Ceuvel</title>
+<meta name="description" content="Meld je aan als ambassadeur van De Ceuvel: upload je foto en vertel wat De Ceuvel voor jou betekent.">
+<meta name="theme-color" content="#152326">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=League+Spartan:wght@700;800;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@800&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-pagina="word-ambassadeur">
+<main>
+  <header class="pkop rdc-korrel" style="padding-bottom:var(--space-8)">
+    <div class="binnen">
+      <div class="rdc-leus rdc-leus-m">
+        <p class="rdc-leus-kicker">Aanmelden · ambassadeur</p>
+        <h1 class="rdc-leus-titel rdc-grit">Zet je gezicht<br>op <em>De Ceuvel</em></h1>
+      </div>
+      <p class="intro">Vul je gegevens in en kijk rechts hoe je kaart op de site komt te staan. We lezen elk verhaal en plaatsen het zo snel mogelijk.</p>
+    </div>
+  </header>
+
+  <section class="sectie" style="padding-top:var(--space-6)">
+    <div class="binnen aanmeld-grid">
+      <div class="plaat" id="formulier-plaat">
+        <form class="formulier" id="amb-form" novalidate>
+          <!-- FOTO bovenaan -->
+          <div class="veld">
+            <span class="veld-label">Jouw foto</span>
+            <label class="foto-drop" id="foto-drop">
+              <input type="file" id="foto" accept="image/jpeg,image/png,image/webp,image/heic" aria-describedby="foto-hulp">
+              <span class="foto-drop-poort" id="foto-poort" aria-hidden="true">+</span>
+              <span><strong id="foto-titel">Sleep je foto hierheen of klik</strong><span id="foto-hulp">Een portret waarop je gezicht goed te zien is. Vierkant of liggend werkt het best. We verkleinen hem automatisch.</span></span>
+            </label>
+            <details style="font-size:14px;color:var(--ink-muted)"><summary style="cursor:pointer">Liever een link naar je foto (Dropbox, Drive)?</summary>
+              <div class="veld" style="margin-top:var(--space-3)"><input id="fotoLink" name="fotoLink" type="url" placeholder="https://…" maxlength="400"></div>
+            </details>
+          </div>
+
+          <div class="rij-2">
+            <div class="veld"><label for="voornaam">Voornaam <span class="verplicht">*</span></label><input id="voornaam" name="voornaam" autocomplete="given-name" required maxlength="60"></div>
+            <div class="veld"><label for="achternaam">Achternaam <span class="verplicht">*</span></label><input id="achternaam" name="achternaam" autocomplete="family-name" required maxlength="80"></div>
+          </div>
+
+          <div class="veld">
+            <label for="wie">Wie ben je? <span class="verplicht">*</span></label>
+            <p class="hulp">Wat doe je, of hoe ben je verbonden met De Ceuvel? Bijvoorbeeld: muzikant, buurvrouw, oprichter van…</p>
+            <input id="wie" name="wie" required maxlength="120">
+          </div>
+
+          <div class="veld">
+            <label for="verhaal">Wat betekent De Ceuvel voor jou? <span class="verplicht">*</span></label>
+            <p class="hulp">Een herinnering, een reden, een gevoel. Schrijf zoals je praat. Maximaal 500 tekens.</p>
+            <textarea id="verhaal" name="verhaal" required maxlength="500"></textarea>
+            <span class="teken-teller" data-voor="verhaal">0 / 500</span>
+          </div>
+
+          <div class="rij-2">
+            <div class="veld"><label for="email">E-mail <span class="verplicht">*</span></label><input id="email" name="email" type="email" autocomplete="email" required maxlength="120"><p class="hulp">Wordt niet gepubliceerd.</p></div>
+            <div class="veld"><label for="telefoon">Telefoon</label><input id="telefoon" name="telefoon" type="tel" autocomplete="tel" maxlength="30"><p class="hulp">Alleen als we je willen bereiken voor pers of media.</p></div>
+          </div>
+
+          <div class="veld"><label for="link">Instagram of website</label><input id="link" name="link" placeholder="@jouwnaam of https://…" maxlength="200"><p class="hulp">Dan kunnen we je taggen of naar je linken.</p></div>
+
+          <div class="veld" style="gap:var(--space-4)">
+            <span class="veld-label">Toestemming</span>
+            <label class="vink"><input type="checkbox" name="toestemmingWebsite" required><span>Ik geef toestemming om mijn naam, verhaal en (als ik die meestuur) foto op reddeceuvel.nl en deceuvel.nl te publiceren. <span class="verplicht">*</span></span></label>
+            <label class="vink"><input type="checkbox" name="toestemmingSocial" checked><span>Mijn naam en verhaal mogen ook gedeeld worden op social media en in campagnemateriaal.</span></label>
+            <label class="vink"><input type="checkbox" name="updates" checked><span>Houd me op de hoogte van de campagne.</span></label>
+          </div>
+          <div class="hp" aria-hidden="true"><label>Laat leeg <input name="website_hp" tabindex="-1" autocomplete="off"></label></div>
+
+          <p class="fout" id="fout" hidden></p>
+          <button class="rdc-btn rdc-btn-oker rdc-btn-xl rdc-btn-pijl" type="submit" style="width:100%">Word ambassadeur</button>
+          <p class="privacy">Wil je later iets aanpassen of je verhaal laten weghalen? Mail ons, dan regelen we het.</p>
+        </form>
+      </div>
+
+      <aside>
+        <p class="label voorbeeld-label">Zo kom je op de site</p>
+        <div id="voorbeeld"></div>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<template id="bedankt-tpl">
+  <div class="bedankt">
+    <span class="rdc-stamp rdc-stamp-oker rdc-grit-licht">Ambassadeur<span class="rdc-stamp-sub">Welkom aan boord</span></span>
+    <h2>Dank je, <span data-naam></span>.</h2>
+    <p>We hebben je verhaal ontvangen. We lezen het en zetten het zo snel mogelijk online. Daarna kun je het delen.</p>
+    <p class="label">Maak het nu al groter</p>
+    <div class="deelrij" id="deelrij"></div>
+    <a class="rdc-btn rdc-btn-oker rdc-btn-pijl" href="petitie.html">Teken ook de petitie</a>
+  </div>
+</template>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+(function () {
+  var form = document.getElementById("amb-form");
+  var fout = document.getElementById("fout");
+  var voorbeeld = document.getElementById("voorbeeld");
+  var fotoData = "";
+
+  function waarde(n) { var el = form.elements[n]; return el ? el.value.trim() : ""; }
+  function ververs() {
+    var naam = (waarde("voornaam") + " " + waarde("achternaam")).trim();
+    voorbeeld.innerHTML = RDC.ambKaart({
+      naam: naam || "Jouw naam",
+      wie: waarde("wie") || "Wie ben jij?",
+      verhaal: waarde("verhaal") || "Wat betekent De Ceuvel voor jou? Begin met typen, dan verschijnt je verhaal hier.",
+      foto: ""
+    }, 0, { groot: true });
+    if (fotoData) {
+      var poort = voorbeeld.querySelector(".amb-poort");
+      poort.innerHTML = '<img alt="Jouw foto" src="' + fotoData + '">';
+    }
+  }
+  form.addEventListener("input", ververs);
+  ververs();
+
+  // tekenteller
+  var ta = document.getElementById("verhaal"), tt = document.querySelector('[data-voor="verhaal"]');
+  ta.addEventListener("input", function () { tt.textContent = ta.value.length + " / 500"; tt.classList.toggle("bijna", ta.value.length > 450); });
+
+  // foto: verkleinen in de browser naar max 1000px JPEG
+  var input = document.getElementById("foto"), drop = document.getElementById("foto-drop"), poort = document.getElementById("foto-poort"), titel = document.getElementById("foto-titel");
+  ["dragenter", "dragover"].forEach(function (ev) { drop.addEventListener(ev, function () { drop.classList.add("sleep"); }); });
+  ["dragleave", "drop"].forEach(function (ev) { drop.addEventListener(ev, function () { drop.classList.remove("sleep"); }); });
+  input.addEventListener("change", function () {
+    var file = input.files && input.files[0];
+    if (!file) return;
+    if (!/^image\//.test(file.type)) { titel.textContent = "Dat is geen afbeelding. Probeer een JPG of PNG."; return; }
+    titel.textContent = "Foto verwerken…";
+    var img = new Image(), url = URL.createObjectURL(file);
+    img.onload = function () {
+      var max = 1000, s = Math.min(1, max / Math.max(img.width, img.height));
+      var c = document.createElement("canvas");
+      c.width = Math.round(img.width * s); c.height = Math.round(img.height * s);
+      c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+      fotoData = c.toDataURL("image/jpeg", 0.85);
+      URL.revokeObjectURL(url);
+      poort.style.backgroundImage = "url(" + fotoData + ")";
+      poort.textContent = ""; poort.classList.add("heeft-foto");
+      titel.textContent = "Mooi. Klik om een andere te kiezen.";
+      ververs();
+    };
+    img.onerror = function () { titel.textContent = "Deze foto kunnen we niet lezen. Probeer een JPG of PNG."; };
+    img.src = url;
+  });
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    fout.hidden = true;
+    if (!form.checkValidity()) {
+      var eerste = form.querySelector(":invalid");
+      fout.textContent = eerste && eerste.name === "toestemmingWebsite"
+        ? "We hebben je toestemming nodig om je verhaal te publiceren."
+        : "Vul alle velden met een * in.";
+      fout.hidden = false;
+      if (eerste) eerste.focus();
+      return;
+    }
+    var knop = form.querySelector("button[type=submit]");
+    knop.disabled = true; knop.textContent = "Versturen…";
+    RDC.api.verstuur({
+      type: "ambassadeur",
+      voornaam: waarde("voornaam"), achternaam: waarde("achternaam"), wie: waarde("wie"),
+      verhaal: waarde("verhaal"), email: waarde("email"), telefoon: waarde("telefoon"), link: waarde("link"),
+      foto: fotoData, fotoLink: waarde("fotoLink"),
+      toestemmingWebsite: form.elements.toestemmingWebsite.checked,
+      toestemmingSocial: form.elements.toestemmingSocial.checked,
+      updates: form.elements.updates.checked,
+      website_hp: waarde("website_hp")
+    }).then(function (r) {
+      if (!r || !r.ok) throw new Error((r && r.error) || "Er ging iets mis.");
+      var plaat = document.getElementById("formulier-plaat");
+      var voornaam = waarde("voornaam");
+      plaat.innerHTML = document.getElementById("bedankt-tpl").innerHTML;
+      plaat.querySelector("[data-naam]").textContent = voornaam;
+      RDC.deelknoppen(plaat.querySelector("#deelrij"), "Ik ben ambassadeur van De Ceuvel. Wat betekent deze plek voor jou?", RDC_CONFIG.SITE_URL + "/word-ambassadeur.html");
+      document.querySelector(".voorbeeld-label").textContent = "Jouw kaart · wacht op goedkeuring";
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }).catch(function (err) {
+      fout.textContent = err.message || "Er ging iets mis. Probeer het opnieuw.";
+      fout.hidden = false;
+      knop.disabled = false; knop.textContent = "Word ambassadeur";
+    });
+  });
+})();
+</script>
+</body>
+</html>
