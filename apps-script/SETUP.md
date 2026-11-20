@@ -1,6 +1,6 @@
 # Backend koppelen: Google Sheet + Drive + mail
 
-De website is statisch (GitHub Pages). Alle inzendingen gaan naar een Google Sheet
+De website is statisch (GitHub Pages). Alle ambassadeur-aanmeldingen gaan naar een Google Sheet (de petitie loopt via petities.nl, zie PETITIE.md)
 via een klein Google Apps Script. Kosten: nul. Tijd: ± 10 minuten.
 
 ## 1. Sheet aanmaken
@@ -18,7 +18,7 @@ via een klein Google Apps Script. Kosten: nul. Tijd: ± 10 minuten.
 1. Kies bovenin de functie **`setup`** en klik **▶ Uitvoeren**.
 2. Geef toestemming (Sheets, Drive, Mail). Bij "Google heeft deze app niet geverifieerd":
    *Geavanceerd → Ga naar … (onveilig)*. Dat is normaal voor je eigen script.
-3. In de sheet staan nu twee tabbladen, **Petitie** en **Ambassadeurs**, met vinkjes-kolommen.
+3. In de sheet staat nu het tabblad **Ambassadeurs**, met vinkjes-kolommen.
    In je Drive staat een map voor de ambassadeursfoto's.
 
 ## 4. Publiceren als web-app
@@ -37,9 +37,7 @@ Commit en push. Klaar: de website toont nu echte data in plaats van voorbeelddat
 
 ## Dagelijks gebruik
 - **Ambassadeur goedkeuren**: zet het vinkje in de kolom **Goedgekeurd**. Binnen een minuut staat hij/zij op de site.
-- **Uitgelicht**: aangevinkte ambassadeurs komen vooraan in de carrousel op de homepage.
-- **Petitie**: de teller telt alle handtekeningen. In de lijst "Zij tekenden al" verschijnen alleen
-  mensen die *Naam tonen* aanvinkten én die jij op **Goedgekeurd** zet (alleen voornaam + initiaal en woonplaats).
+- **Uitgelicht**: aangevinkte ambassadeurs komen vooraan op de site.
 - Wil je iets aanpassen of weghalen? Wijzig de cel of haal het vinkje weg.
 
 ## Script aangepast?

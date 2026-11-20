@@ -1,9 +1,9 @@
 /**
  * Red de Ceuvel — backend (Google Apps Script)
  *
- * Slaat petitie-handtekeningen en ambassadeur-aanmeldingen op in een Google Sheet,
- * bewaart ambassadeursfoto's in een Google Drive-map, mailt bij elke nieuwe
- * ambassadeur, en levert de goedgekeurde inzendingen als JSON aan de website.
+ * Slaat ambassadeur-aanmeldingen op in een Google Sheet, bewaart foto's in een
+ * Google Drive-map, mailt bij elke nieuwe ambassadeur, en levert de goedgekeurde
+ * ambassadeurs als JSON aan de website. (De petitie loopt via petities.nl.)
  *
  * Installatie: zie apps-script/SETUP.md
  */
@@ -20,13 +20,8 @@ var CONFIG = {
   MAX_PHOTO_BYTES: 4 * 1024 * 1024
 };
 
-var SHEET_PETITIE = 'Petitie';
 var SHEET_AMBASSADEURS = 'Ambassadeurs';
 
-var PETITIE_KOLOMMEN = [
-  'Tijdstip', 'Voornaam', 'Achternaam', 'E-mail', 'Woonplaats', 'Ik ben',
-  'Waarom ik teken', 'Naam tonen', 'Nieuwsbrief', 'Goedgekeurd'
-];
 var AMBASSADEUR_KOLOMMEN = [
   'Tijdstip', 'Voornaam', 'Achternaam', 'Wie ben je', 'Wat betekent de Ceuvel voor jou',
   'E-mail', 'Foto', 'Instagram / website', 'Telefoon',
@@ -37,7 +32,6 @@ var AMBASSADEUR_KOLOMMEN = [
 /** Draai deze functie één keer vanuit de editor (▶ Uitvoeren). */
 function setup() {
   var ss = SpreadsheetApp.getActive();
-  inrichten_(ss, SHEET_PETITIE, PETITIE_KOLOMMEN, ['Naam tonen', 'Nieuwsbrief', 'Goedgekeurd']);
   inrichten_(ss, SHEET_AMBASSADEURS, AMBASSADEUR_KOLOMMEN,
     ['Toestemming website', 'Toestemming social & campagne', 'Updates', 'Goedgekeurd', 'Uitgelicht']);
   fotoMap_();
@@ -74,7 +68,6 @@ function doPost(e) {
     var lock = LockService.getScriptLock();
     lock.waitLock(20000);
     try {
-      if (body.type === 'petitie') return json_(petitie_(body));
       if (body.type === 'ambassadeur') return json_(ambassadeur_(body));
     } finally {
       lock.releaseLock();
@@ -84,32 +77,6 @@ function doPost(e) {
     console.error(err);
     return json_({ ok: false, error: 'Er ging iets mis. Probeer het later opnieuw.' });
   }
-}
-
-// ====== PETITIE ===========================================================
-function petitie_(b) {
-  var voornaam = schoon_(b.voornaam, 60), achternaam = schoon_(b.achternaam, 80);
-  var email = schoon_(b.email, 120).toLowerCase();
-  if (!voornaam || !achternaam || !geldigEmail_(email)) {
-    return { ok: false, error: 'Vul je naam en een geldig e-mailadres in.' };
-  }
-  var sh = SpreadsheetApp.getActive().getSheetByName(SHEET_PETITIE);
-  var emailCol = PETITIE_KOLOMMEN.indexOf('E-mail') + 1;
-  var last = sh.getLastRow();
-  if (last > 1) {
-    var bestaand = sh.getRange(2, emailCol, last - 1, 1).getValues();
-    for (var i = 0; i < bestaand.length; i++) {
-      if (String(bestaand[i][0]).toLowerCase() === email) {
-        return { ok: true, dubbel: true };
-      }
-    }
-  }
-  sh.appendRow([
-    new Date(), voornaam, achternaam, email, schoon_(b.woonplaats, 80), schoon_(b.rol, 60),
-    schoon_(b.bericht, 280), !!b.naamTonen, !!b.nieuwsbrief, false
-  ]);
-  CacheService.getScriptCache().remove('publiek');
-  return { ok: true };
 }
 
 // ====== AMBASSADEUR =======================================================
@@ -192,23 +159,7 @@ function publiekeData_() {
   var hit = cache.get('publiek');
   if (hit) return JSON.parse(hit);
 
-  var ss = SpreadsheetApp.getActive();
-  var p = rijen_(ss.getSheetByName(SHEET_PETITIE), PETITIE_KOLOMMEN);
-  var a = rijen_(ss.getSheetByName(SHEET_AMBASSADEURS), AMBASSADEUR_KOLOMMEN);
-
-  var getekend = p.filter(function (r) { return r['E-mail']; });
-  var ondertekenaars = getekend
-    .filter(function (r) { return r['Goedgekeurd'] === true && r['Naam tonen'] === true; })
-    .reverse().slice(0, 200)
-    .map(function (r) {
-      return {
-        naam: r['Voornaam'] + ' ' + String(r['Achternaam']).charAt(0) + '.',
-        woonplaats: r['Woonplaats'] || '',
-        rol: r['Ik ben'] || '',
-        bericht: r['Waarom ik teken'] || '',
-        datum: r['Tijdstip'] instanceof Date ? r['Tijdstip'].toISOString() : ''
-      };
-    });
+  var a = rijen_(SpreadsheetApp.getActive().getSheetByName(SHEET_AMBASSADEURS), AMBASSADEUR_KOLOMMEN);
 
   var ambassadeurs = a
     .filter(function (r) { return r['Goedgekeurd'] === true && r['Toestemming website'] === true; })
@@ -226,8 +177,6 @@ function publiekeData_() {
 
   var data = {
     ok: true,
-    handtekeningen: getekend.length,
-    ondertekenaars: ondertekenaars,
     ambassadeurs: ambassadeurs,
     bijgewerkt: new Date().toISOString()
   };
